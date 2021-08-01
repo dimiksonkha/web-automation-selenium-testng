@@ -7,11 +7,11 @@ import pages.GeolocationPage;
 
 public class GeolocationTests extends BaseTests {
     @Test
-    public void testGeolocation() {
+    public void testGeolocation() throws InterruptedException {
         GeolocationPage geolocationPage = homePage.clickGeolocationPageLink();
         geolocationPage.clickLocationButton();
-//        Assert.assertTrue(geolocationPage.geLatitude().contains("0"), "Wrong Latitude");
-//        Assert.assertTrue(geolocationPage.geLongitude().contains("0"), "Wrong Longitude");
+        Assert.assertTrue(geolocationPage.geLatitude().contains("0"), "Wrong Latitude");
+        Assert.assertTrue(geolocationPage.geLongitude().contains("0"), "Wrong Longitude");
 
 
     }
