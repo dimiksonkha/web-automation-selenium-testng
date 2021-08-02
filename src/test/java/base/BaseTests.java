@@ -5,6 +5,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import com.google.common.io.Files;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -13,6 +14,7 @@ import util.EmailSender;
 import util.WindowManager;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
 
 
 public class BaseTests {
@@ -23,7 +25,15 @@ public class BaseTests {
 
     @BeforeClass
     public void setup(){
-        System.setProperty("webdriver.chrome.driver","resources/chromedriver");
+        java.util.logging.Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
+        System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+
+        // For Linux and Mac Operating System
+        System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir")+"/resources/chromedriver");
+
+        //Comment out this line for Windows Operating System
+        //System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir")+"/resources/chromedriver.exe");
+
         driver = new ChromeDriver(getChromeOptions());
         driver.manage().window().maximize();
 
