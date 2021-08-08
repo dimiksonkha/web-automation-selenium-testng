@@ -39,6 +39,7 @@ public class HomePage {
     private By floatingMenuPageLink = By.cssSelector("a[href=\"/floating_menu\"]");
     private By jQueryUIMenuPageLink = By.cssSelector("a[href=\"/jqueryui/menu\"]");
     private By geolocationPageLink = By.cssSelector("a[href=\"/geolocation\"]");
+    private By shiftingContentPageLink = By.cssSelector("a[href=\"/shifting_content\"]");
 
 
 
@@ -205,6 +206,11 @@ public class HomePage {
     public GeolocationPage clickGeolocationPageLink(){
         driver.findElement(geolocationPageLink).click();
         return new GeolocationPage(driver);
+    }
+
+    public ShitingContentPage clickShiftingContentPageLink(){
+        driver.findElement(shiftingContentPageLink).click();
+        return new ShitingContentPage(driver);
     }
 
 
