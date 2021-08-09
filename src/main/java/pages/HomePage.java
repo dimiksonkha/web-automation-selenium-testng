@@ -1,5 +1,6 @@
 package pages;
 
+import okhttp3.Challenge;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -40,6 +41,7 @@ public class HomePage {
     private By jQueryUIMenuPageLink = By.cssSelector("a[href=\"/jqueryui/menu\"]");
     private By geolocationPageLink = By.cssSelector("a[href=\"/geolocation\"]");
     private By shiftingContentPageLink = By.cssSelector("a[href=\"/shifting_content\"]");
+    private By challangingDOMPageLink = By.cssSelector("a[href=\"/challenging_dom\"]");
 
 
 
@@ -211,6 +213,11 @@ public class HomePage {
     public ShitingContentPage clickShiftingContentPageLink(){
         driver.findElement(shiftingContentPageLink).click();
         return new ShitingContentPage(driver);
+    }
+
+    public ChallengingDOMPage clickChallengingDOMPageLink(){
+        driver.findElement(challangingDOMPageLink).click();
+        return new ChallengingDOMPage(driver);
     }
 
 
